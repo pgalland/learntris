@@ -12,7 +12,7 @@ import sys
 # line 0 is the bottom line and line 21 the top one
 # column 0 is the leftmost column, column 9 the rightmost one
 
-matrix = [ [0 for j in range(10)] for i in range(22)]
+matrix = [ ['.' for j in range(10)] for i in range(22)]
 
 
 
@@ -27,12 +27,10 @@ def printState() :
     for line in range(21,-1,-1) :
         #prints columns from left to right
         for column in range(0,10) :
-
-            if (matrix[line][column] == 0) :
-                if (column<9) :
-                    print('.', end=" ")
-                else :
-                    print('.', end="\n") #prints newline for the last column
+            if (column<9) :
+                print(matrix[line][column], end=" ")
+            else :
+                print(matrix[line][column], end="\n") #prints newline for the last column
 
 
 
