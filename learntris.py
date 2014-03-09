@@ -34,7 +34,21 @@ def printState() :
 
 
 
+# reads the represantation of the matrix (22 line of text from stdin)
+# and set the matrix according to the textual representation
+def setMatrix() :
     
+    line = 21 # the first line read corresponds to the top line i.e. line number 21
+    
+    # read the lines
+    for textLine in sys.stdin :
+        
+        for column in range(0,20, 2) : # hop of 2 because of the whitespace between letters
+            matrix[line][int(column/2)] = textLine[column] 
+        line = line-1
+        
+        if (line<0) : #stop after line 0
+            break
 
 
 
@@ -45,6 +59,8 @@ for line in sys.stdin :
     
     if (line == 'p\n'):
         printState()
+    elif (line == 'g\n'):
+        setMatrix()
     else :
         quit()
     
